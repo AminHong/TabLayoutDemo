@@ -2,4 +2,5 @@
     <string name="app_name">TabLayoutDemo</string>
 
     <string name="empty"/>
+    <string name="more">更多</string>
 </resources>

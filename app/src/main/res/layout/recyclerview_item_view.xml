@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="本週Play精選"
+            android:id="@+id/titleView"
+            android:textSize="18sp"
+            android:textColor="@android:color/black"
+            android:singleLine="true"
+            android:layout_toLeftOf="@+id/moreView"
+            android:layout_toStartOf="@+id/moreView" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="我們推薦的遊戲"
+            android:id="@+id/descriptionView"
+            android:layout_below="@+id/titleView"
+            android:textSize="14sp"
+            android:textColor="@android:color/tertiary_text_dark"
+            android:singleLine="true"
+            android:layout_toLeftOf="@+id/moreView"
+            android:layout_toStartOf="@+id/moreView"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/more"
+            android:id="@+id/moreView"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:textSize="14sp"
+            android:textColor="@android:color/holo_green_dark"
+            android:singleLine="true"
+            android:layout_marginLeft="8dp" />
+
+    </RelativeLayout>
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/horizontalScrollView" >
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/scrollViewLayout"/>
+
+    </HorizontalScrollView>
+
+</LinearLayout>

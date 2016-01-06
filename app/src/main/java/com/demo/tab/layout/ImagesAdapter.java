@@ -7,12 +7,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-public class ImagesAdapter extends PagerAdapter {
-    private int[] ImagesRes = new int []{R.mipmap.banner1, R.mipmap.banner2, R.mipmap.banner3, R.mipmap.banner4, R.mipmap.banner5, R.mipmap.banner6};
-    private Context context;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
-    public ImagesAdapter(Context context) {
+import java.util.ArrayList;
+
+public class ImagesAdapter extends PagerAdapter {
+
+    private Context context;
+    private ArrayList<String> arrayList;
+
+    public ImagesAdapter(Context context, ArrayList<String> arrayList) {
         this.context = context;
+        this.arrayList = arrayList;
     }
 
     @Override
@@ -31,7 +38,9 @@ public class ImagesAdapter extends PagerAdapter {
         View view = layoutInflater.inflate(R.layout.image_view, container, false);
 
         ImageView imageView = (ImageView) view.findViewById(R.id.imageView);
-        imageView.setImageResource(ImagesRes[position % ImagesRes.length]);
+        if(arrayList.size() > 0) {
+            Glide.with(context).load(arrayList.get(position % arrayList.size())).diskCacheStrategy(DiskCacheStrategy.ALL).into(imageView);
+        }
 
         container.addView(view, 0);
         return view;
@@ -40,5 +49,20 @@ public class ImagesAdapter extends PagerAdapter {
     @Override
     public void destroyItem(ViewGroup container, int position, Object object) {
         container.removeView((View) object);
+    }
+
+    @Override
+    public int getItemPosition(Object object) {
+        return POSITION_NONE;
+    }
+
+    public void removeAll(){
+        arrayList.clear();
+        notifyDataSetChanged();
+    }
+
+    public void addAll(ArrayList<String> arrayList){
+        this.arrayList = arrayList;
+        notifyDataSetChanged();
     }
 }

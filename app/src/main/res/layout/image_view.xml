@@ -9,7 +9,6 @@
         android:id="@+id/imageView"
         android:contentDescription="@string/empty"
         android:background="@android:color/transparent"
-        android:scaleType="centerCrop"
-        android:src="@mipmap/banner1" />
+        android:scaleType="centerCrop" />
 
 </RelativeLayout>
